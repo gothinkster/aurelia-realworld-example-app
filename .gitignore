@@ -1,8 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/bower_components
+node_modules
 
 # IDEs and editors
 /.idea
@@ -10,8 +9,12 @@
 .classpath
 *.launch
 .settings/
+.vscode
 
 
 #System Files
 .DS_Store
 Thumbs.db
+
+# Compiled files
+scripts
