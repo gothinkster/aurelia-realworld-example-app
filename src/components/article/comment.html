@@ -8,7 +8,7 @@
         <img src.bind="comment.author.image" class="comment-author-img" />
       </a>
       &nbsp;
-      <a route-href="route: profile; params.bind: {name: comment.author.username}" class="comment-author">${comment.author.username}t</a>
+      <a route-href="route: profile; params.bind: {name: comment.author.username}" class="comment-author">${comment.author.username}</a>
       <span class="date-posted">${comment.createdAt | date}</span>
     </div>
   </div>

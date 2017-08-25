@@ -30,7 +30,7 @@ export class ArticleService {
     } else {
       // Otherwise, create a new article
       return this.apiService.post('/articles/', {article: article})
-        .map(data => data.article)
+        .then(data => data.article)
     }
   }
   

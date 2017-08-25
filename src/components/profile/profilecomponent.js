@@ -20,4 +20,12 @@ export class ProfileComponent {
   get isUser() {
     return this.profile.username === this.sharedState.currentUser.username;
   }
+  
+  onToggleFollowing() {
+    this.profile.following = !this.profile.following;
+    if (this.profile.following)
+      this.profileService.follow(this.profile.username);
+    else
+      this.profileService.unfollow(this.profile.username);
+  }
 }
