@@ -6,13 +6,13 @@
         <div class="row">
 
           <div class="col-xs-12 col-md-10 offset-md-1">
-            <img src.bind="sharedState.currentUser.image" class="user-img" />
-            <h4>${sharedState.currentUser.username}</h4>
-            <p>${sharedState.currentUser.bio}</p>
+            <img src.bind="profile.image" class="user-img" />
+            <h4>${profile.username}</h4>
+            <p>${profile.bio}</p>
             <button class="btn btn-sm btn-outline-secondary action-btn" show.bind="!isUser">
               <i class="ion-plus-round"></i>
               &nbsp;
-              Follow ${sharedState.currentUser.username} <span class="counter">(10)<!-- TODO: follow --></span>
+              Follow ${profile.username}
             </button>
             <a route-href="route: settings" class="btn btn-sm btn-outline-secondary action-btn" show.bind="isUser">
               <i class="ion-gear-a"></i> Edit Profile Settings

@@ -19,7 +19,7 @@ export class UserService {
     if (this.jwtService.getToken()) {
       this.apiService.get('/user')
         .then(data => this.setAuth(data.user))
-    }else {
+    } else {
       // Remove any potential remnants of previous auth states
       this.purgeAuth();
     }
@@ -43,18 +43,17 @@ export class UserService {
     const route = (type === 'login') ? '/login' : '';
     return this.apiService.post('/users' + route, {user: credentials})
       .then(data => {
-          this.setAuth(data.user);
-          return data;
-        }
-      );
+        this.setAuth(data.user);
+        return data;
+      });
   }
   
   update(user) {
     return this.apiService.put('/user', { user })
       .then(data => {
-      this.sharedState.currentUser = data.user;
-      return data.user;
-    });
+        this.sharedState.currentUser = data.user;
+        return data.user;
+      });
     
   }
 }

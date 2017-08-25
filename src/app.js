@@ -16,9 +16,11 @@ export class App {
       {route: ['login'], moduleId: 'components/auth/authcomponent', name: 'login', title: 'Sign in'},
       {route: ['register'], moduleId: 'components/auth/authcomponent', name:'register', title: 'Sign up'},
       {route: ['settings'], moduleId: 'components/settings/settingscomponent', name:'settings', title: 'Settings'},
-      {route: [':name'], moduleId: 'components/profile/profilecomponent', name:'profile', title: 'Profile'}
-      
+      {route: [':name'], moduleId: 'components/profile/profilecomponent', name:'profile', title: 'Profile'},
+      {route: ['editor'/*, 'editor/:article-slug'*/], moduleId: 'components/editor/editorcomponent', name:'editor', title: 'Editor'},
+      {route: ['article/:slug'], moduleId: 'components/article/articlecomponent', name:'article', title: 'article'}
     ]);
+    
     this.router = router;
   }
   
