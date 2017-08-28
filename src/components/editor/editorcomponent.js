@@ -1,19 +1,36 @@
 import {inject, observable} from 'aurelia-framework';
+import {Router} from 'aurelia-router'
 import {ArticleService} from "../../shared/services/articleservice";
 
-@inject(ArticleService)
+@inject(ArticleService, Router)
 export class EditorComponent {
-  article = {
-    title: '',
-    description: '',
-    body: '',
-    tagList: []
-  };
+  article;
   @observable() tag;
   
-  constructor(as) {
+  constructor(as, r) {
     this.articleService = as;
+    this.router = r;
   }
+
+  activate(params, routeConfig) {
+    this.routeConfig = routeConfig;
+    this.slug = params.slug;
+
+    if (this.slug) {
+      return this.articleService.get(this.slug)
+        .then(article => {
+          this.article = article;
+        });
+    } else {
+      this .article = {
+        title: '',
+        description: '',
+        body: '',
+        tagList: []
+      };
+    }
+    return null;
+}
   
   tagChanged(newValue, oldValue) {
     if (newValue !== undefined && newValue !== '')
@@ -30,5 +47,6 @@ export class EditorComponent {
   
   publishArticle() {
     this.articleService.save(this.article)
+      .then(() => this.router.navigateToRoute('article', {slug: this.slug}))
   }
 }
