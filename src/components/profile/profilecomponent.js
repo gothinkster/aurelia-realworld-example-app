@@ -11,6 +11,15 @@ export class ProfileComponent {
     this.profileService = ps;
   }
   
+  configureRouter(config, router) {
+    config.map([
+      {route: [''], moduleId: 'components/profile/profilearticlecomponent', name: 'profilearticle', title: 'Profile'},
+      {route: ['favorites'], moduleId: 'components/profile/profilefavoritescomponent', name: 'profilefavorites', title: 'Profile'}
+    ]);
+    
+    this.router = router;
+  }
+  
   activate(params, routeConfig) {
     this.username = params.name;
     return this.profileService.get(this.username)

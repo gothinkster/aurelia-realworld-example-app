@@ -1,6 +1,5 @@
 <template>
-  <require from="./articlepreview"></require>
-  <require from="../../resources/value-converters/filteronproperty"></require>
+  <require from="../../resources/elements/articlelist"></require>
 
   <div class="home-page">
 
@@ -13,7 +12,7 @@
 
     <div class="container page">
       <div class="row">
-        <!-- TODO: article feed pagination -->
+
         <div class="col-md-9">
           <div class="feed-toggle">
             <ul class="nav nav-pills outline-active">
@@ -28,7 +27,10 @@
             </ul>
           </div>
 
-          <article-preview repeat.for="article of articles | filterOnProperty:'tagList':filterTag" article.bind="article"></article-preview>
+          <article-list articles.bind="articles" total-pages.bind="totalPages" page-number.bind="pageNumber"
+            current-page.bind="currentPage" set-page-cb.call="setPageTo(pageNumber)"></article-list>
+
+
 
         </div>
 
@@ -38,6 +40,7 @@
 
             <div class="tag-list">
               <a repeat.for="tag of tags" href="#" class="tag-pill tag-default" click.delegate="setListTo('all', tag)">${tag}</a>
+              <div show.bind="tags.length === 0">No tags are here... yet.</div>
             </div>
           </div>
         </div>

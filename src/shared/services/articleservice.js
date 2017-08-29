@@ -8,10 +8,8 @@ export class ArticleService {
     this.apiService = apiService;
   }
   
-  getList(config) {
-    let params = '';
-    
-    return this.apiService.get('/articles' + ((config.type === 'feed') ? '/feed' : ''), params)
+  getList(type, params) {
+    return this.apiService.get('/articles' + ((type === 'feed') ? '/feed' : ''), params)
   }
   
   get(slug) {
