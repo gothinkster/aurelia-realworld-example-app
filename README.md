@@ -22,7 +22,7 @@ Created with aurelia-cli
 Make sure you have node and npm installed. Then run 
 ```
 npm install
-au run
+au run --watch
 ```
 and Navigate to `http://localhost:9000/`. 
 
