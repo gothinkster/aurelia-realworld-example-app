@@ -30,7 +30,7 @@ export class ApiService {
       method: 'GET',
       headers: this.setHeaders()
     };
-    return this.http.fetch(`${config.api_url}${path}${qs.stringify(params)}`,options)
+    return this.http.fetch(`${config.api_url}${path}?${qs.stringify(params)}`,options)
       .then(status)
       .catch(parseError)
   }
