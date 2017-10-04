@@ -64,6 +64,7 @@ export class HomeComponent {
   }
   
   setListTo(type, tag) {
+    if (type === 'feed' && !this.sharedState.isAuthenticated) return;
     this.shownList = type;
     this.filterTag = tag;
     this.getArticles();
