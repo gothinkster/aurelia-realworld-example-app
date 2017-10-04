@@ -47,6 +47,9 @@ export class EditorComponent {
   
   publishArticle() {
     this.articleService.save(this.article)
-      .then(() => this.router.navigateToRoute('article', {slug: this.slug}))
+      .then((article) => {
+        this.slug = article.slug;
+        this.router.navigateToRoute('article', {slug: this.slug})
+      })
   }
 }

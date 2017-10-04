@@ -25,6 +25,7 @@ export class ArticleService {
     if (article.slug) {
       // If we're updating an existing article
       return this.apiService.put('/articles/' + article.slug, {article: article})
+        .then(data => data.article)
     } else {
       // Otherwise, create a new article
       return this.apiService.post('/articles/', {article: article})
