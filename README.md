@@ -19,9 +19,9 @@ Created with aurelia-cli
 
 # Getting started
 
-Make sure you have node and npm installed. Then run 
+Make sure you have [Node](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) installed. Then run 
 ```
-npm install
+yarn install
 au run --watch
 ```
 and Navigate to `http://localhost:9000/`. 
