@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {ArticleService} from "../../shared/services/articleservice";
 import {CommentService} from "../../shared/services/commentservice";
@@ -61,6 +61,7 @@ export class ArticleComponent {
       })
   }
 
+  @computedFrom('article.author.username')
   get canModify() {
     return this.article.author.username === this.sharedState.currentUser.username;
   }

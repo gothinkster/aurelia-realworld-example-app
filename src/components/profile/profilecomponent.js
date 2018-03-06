@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-dependency-injection';
+import {computedFrom} from 'aurelia-framework';
 import {SharedState} from '../../shared/state/sharedstate';
 import {UserService} from "../../shared/services/userservice";
 import {ProfileService} from "../../shared/services/profileservice";
@@ -26,6 +27,7 @@ export class ProfileComponent {
       .then(profile => this.profile = profile)
   }
   
+  @computedFrom('sharedState.currentUser.username')
   get isUser() {
     return this.profile.username === this.sharedState.currentUser.username;
   }
