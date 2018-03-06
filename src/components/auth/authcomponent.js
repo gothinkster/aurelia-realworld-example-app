@@ -1,4 +1,5 @@
 import {inject} from 'aurelia-dependency-injection';
+import {computedFrom} from 'aurelia-framework';
 import {Router, activationStrategy} from 'aurelia-router';
 import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
 import {UserService} from '../../shared/services/userservice';
@@ -33,6 +34,7 @@ export class AuthComponent {
     this.type = routeConfig.name;
   }
   
+  @computedFrom('email', 'username', 'password')
   get canSave() {
     if (this.type === 'login') {
       return this.email !== '' && this.password !== '';
