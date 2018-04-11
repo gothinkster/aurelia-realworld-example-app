@@ -1,8 +1,8 @@
 import {inject} from 'aurelia-dependency-injection';
 import {Router, activationStrategy} from 'aurelia-router';
 import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
-import {UserService} from '../../shared/services/userservice';
-import {SharedState} from '../../shared/state/sharedstate';
+import {UserService} from '../../shared/services/user-service';
+import {SharedState} from '../../shared/state/shared-state';
 
 @inject(UserService, SharedState, Router, ValidationControllerFactory)
 export class AuthComponent {
@@ -11,28 +11,28 @@ export class AuthComponent {
   email = '';
   password = '';
   errors = null;
-  
+
   constructor(userService, sharedState, router, controllerFactory) {
     this.userService = userService;
     this.sharedState = sharedState;
     this.router = router;
     this.controller = controllerFactory.createForCurrentScope();
-    
+
     ValidationRules
       .ensure('email').required().email()
       .ensure('password').required().minLength(8)
       .ensure('username').required().when((auth) => auth.type === 'register')
       .on(this);
   }
-  
+
   determineActivationStrategy() {
     return activationStrategy.replace;
   }
-  
+
   activate(params, routeConfig) {
     this.type = routeConfig.name;
   }
-  
+
   get canSave() {
     if (this.type === 'login') {
       return this.email !== '' && this.password !== '';
@@ -40,10 +40,10 @@ export class AuthComponent {
       return this.username !== '' && this.email !== '' && this.password !== '';
     }
   }
-  
+
   submit() {
     this.errors = null;
-    
+
     this.controller.validate()
       .then(result => {
         if (result.valid) {

@@ -1,6 +1,6 @@
 import {bindable, computedFrom} from 'aurelia-framework';
 import {inject} from 'aurelia-framework';
-import {SharedState} from "../../shared/state/sharedstate";
+import {SharedState} from "../../shared/state/shared-state";
 
 @inject(SharedState)
 export class CommentCustomElement {

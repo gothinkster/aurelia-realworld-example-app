@@ -1,6 +1,5 @@
 <template>
   <require from="./comment"></require>
-  <require from="../../resources/value-converters/formathtml"></require>
   <div class="article-page">
 
     <div class="banner">
@@ -47,7 +46,7 @@
 
       <div class="row article-content">
         <div class="col-md-12">
-          <div innerHtml.bind="article.body | formatHtml">
+          <div innerhtml.bind="article.body | formatHtml">
           </div>
         </div>
       </div>

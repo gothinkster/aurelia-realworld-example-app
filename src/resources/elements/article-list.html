@@ -1,5 +1,5 @@
 <template>
-  <require from="./articlepreview"></require>
+  <require from="./article-preview"></require>
 
   <div class="article-preview" show.bind="articles.length === 0">
     No articles are here... yet.
@@ -9,8 +9,7 @@
 
   <nav show.bind="totalPages.length > 1">
     <ul class="pagination">
-      <li class="page-item"
-          class="${pageNumber === currentPage ? 'active' : ''}"
+      <li class="page-item ${pageNumber === currentPage ? 'active' : ''}"
           repeat.for="pageNumber of totalPages"
           click.delegate="setPageCb({pageNumber: pageNumber})">
         <a class="page-link" href="#">${pageNumber}</a>

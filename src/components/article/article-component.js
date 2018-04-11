@@ -1,17 +1,17 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import {ArticleService} from "../../shared/services/articleservice";
-import {CommentService} from "../../shared/services/commentservice";
-import {UserService} from "../../shared/services/userservice";
-import {SharedState} from "../../shared/state/sharedstate";
-import {ProfileService} from "../../shared/services/profileservice";
+import {ArticleService} from "../../shared/services/article-service";
+import {CommentService} from "../../shared/services/comment-service";
+import {UserService} from "../../shared/services/user-service";
+import {SharedState} from "../../shared/state/shared-state";
+import {ProfileService} from "../../shared/services/profile-service";
 
 @inject(ArticleService, CommentService, UserService, SharedState, ProfileService, Router)
 export class ArticleComponent {
   article;
   comments;
   myComment;
-  
+
   constructor(as, cs, us, shst, ps, r) {
     this.articleService = as;
     this.commentService = cs;
@@ -20,7 +20,7 @@ export class ArticleComponent {
     this.profileService = ps;
     this.router = r;
   }
-  
+
   activate(params, routeConfig) {
     this.routeConfig = routeConfig;
     this.slug = params.slug;
@@ -33,7 +33,7 @@ export class ArticleComponent {
           .then(comments => this.comments = comments);
       });
   }
-  
+
   onToggleFavorited() {
     this.article.favorited = !this.article.favorited;
     if (this.article.favorited) {
@@ -44,7 +44,7 @@ export class ArticleComponent {
       this.articleService.unfavorite(this.slug);
     }
   }
-  
+
   onToggleFollowing() {
     this.article.author.following = !this.article.author.following;
     if (this.article.author.following)
@@ -52,7 +52,7 @@ export class ArticleComponent {
     else
       this.profileService.unfollow(this.article.author.username);
   }
-  
+
   postComment() {
     return this.commentService.add(this.slug, this.myComment)
       .then(comment => {
