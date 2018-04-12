@@ -2,29 +2,29 @@ import {config} from './config';
 import {HttpClient, json} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-dependency-injection';
 import * as qs from 'querystringify';
-import {JwtService} from './jwtservice';
-import {status, parseError} from './servicehelper';
+import {JwtService} from './jwt-service';
+import {status, parseError} from './service-helper';
 
 @inject(HttpClient, JwtService)
 export class ApiService {
-  
+
   constructor(http, jwtService) {
     this.http = http;
     this.jwtService = jwtService;
   }
-  
+
   setHeaders() {
     const headersConfig = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
-  
+
     if (this.jwtService.getToken()) {
       headersConfig['Authorization'] = `Token ${this.jwtService.getToken()}`;
     }
     return new Headers(headersConfig);
   }
-  
+
   get(path, params) {
     const options = {
       method: 'GET',
@@ -34,7 +34,7 @@ export class ApiService {
       .then(status)
       .catch(parseError)
   }
-  
+
   put(path, body = {}) {
     const options = {
       method: 'PUT',
@@ -45,7 +45,7 @@ export class ApiService {
       .then(status)
       .catch(parseError)
   }
-  
+
   post(path, body = {}) {
     const options = {
       method: 'POST',
@@ -56,7 +56,7 @@ export class ApiService {
       .then(status)
       .catch(parseError)
   }
-  
+
   delete(path) {
     const options = {
       method: 'DELETE',
