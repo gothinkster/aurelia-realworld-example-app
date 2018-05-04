@@ -98,6 +98,11 @@
             "main": "./moment.js",
             "path": "../node_modules/moment",
             "resources": []
+          },
+          {
+            "name": "marked",
+            "path": "../node_modules/marked",
+            "main": "marked.min"
           }
         ]
       }
