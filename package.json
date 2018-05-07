@@ -13,6 +13,7 @@
     "aurelia-fetch-client": "^1.1.2",
     "aurelia-validation": "^1.1.1",
     "bluebird": "^3.4.1",
+    "marked": "^0.3.19",
     "moment": "^2.18.1",
     "querystringify": "^1.0.0",
     "requirejs": "^2.3.2",
