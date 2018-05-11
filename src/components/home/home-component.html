@@ -16,8 +16,8 @@
         <div class="col-md-9">
           <div class="feed-toggle">
             <ul class="nav nav-pills outline-active">
-              <li class="nav-item">
-                <a class=" nav-link ${sharedState.isAuthenticated ? '' : 'disabled'} ${shownList === 'feed' ? ' active' : ''}"
+              <li if.bind="sharedState.isAuthenticated" class="nav-item">
+                <a class="nav-link" class.bind="shownList === 'feed' ? ' active' : ''"
                    click.delegate="setListTo('feed')">Your Feed</a>
               </li>
               <li class="nav-item">
@@ -40,7 +40,7 @@
 
             <div class="tag-list">
               <a repeat.for="tag of tags" href="#" class="tag-pill tag-default" click.delegate="setListTo('all', tag)">${tag}</a>
-              <div show.bind="tags.length === 0">No tags are here... yet.</div>
+              <div if.bind="tags.length === 0">No tags are here... yet.</div>
             </div>
           </div>
         </div>
