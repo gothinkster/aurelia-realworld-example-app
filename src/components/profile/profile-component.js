@@ -33,6 +33,10 @@ export class ProfileComponent {
   }
 
   onToggleFollowing() {
+    if (!this.sharedState.isAuthenticated) {
+      this.router.navigateToRoute('login');
+      return;
+    }
     this.profile.following = !this.profile.following;
     if (this.profile.following)
       this.profileService.follow(this.profile.username);

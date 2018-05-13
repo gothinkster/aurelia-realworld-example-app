@@ -35,6 +35,10 @@ export class ArticleComponent {
   }
 
   onToggleFavorited() {
+    if (!this.sharedState.isAuthenticated) {
+      this.router.navigateToRoute('login');
+      return;
+    }
     this.article.favorited = !this.article.favorited;
     if (this.article.favorited) {
       this.article.favoritesCount++;
@@ -46,6 +50,10 @@ export class ArticleComponent {
   }
 
   onToggleFollowing() {
+    if (!this.sharedState.isAuthenticated) {
+      this.router.navigateToRoute('login');
+      return;
+    }
     this.article.author.following = !this.article.author.following;
     if (this.article.author.following)
       this.profileService.follow(this.article.author.username);
