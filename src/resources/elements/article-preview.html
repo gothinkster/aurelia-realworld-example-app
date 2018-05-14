@@ -8,7 +8,7 @@
           ${article.author.username}</a>
         <span class="date">${article.createdAt | date}</span>
       </div>
-      <button class="btn btn-outline-primary btn-sm pull-xs-right" click.delegate="onToggleFavorited()">
+      <button class="btn ${!article.favorited ? 'btn-outline-primary' : 'btn-primary'} btn-sm pull-xs-right" click.delegate="onToggleFavorited()">
         <i class="ion-heart"></i> ${article.favoritesCount}
       </button>
     </div>
