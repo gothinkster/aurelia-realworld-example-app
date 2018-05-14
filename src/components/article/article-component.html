@@ -31,7 +31,7 @@
               ${article.author.following ? 'Unfollow' : 'Follow'} ${article.author.username}
             </button>
             &nbsp;&nbsp;
-            <button class="btn btn-sm btn-outline-primary" click.delegate="onToggleFavorited()">
+            <button class="btn btn-sm ${!article.favorited ? 'btn-outline-primary' : 'btn-primary'}" click.delegate="onToggleFavorited()">
               <i class="ion-heart"></i>
               &nbsp;
               ${article.favorited ? 'Unfavorite' : 'Favorite'} Post <span class="counter">(${article.favoritesCount})</span>
@@ -79,7 +79,7 @@
               ${article.author.following ? 'Unfollow' : 'Follow'} ${article.author.username}
             </button>
             &nbsp;&nbsp;
-            <button class="btn btn-sm btn-outline-primary" click.delegate="onToggleFavorited()">
+            <button class="btn btn-sm ${!article.favorited ? 'btn-outline-primary' : 'btn-primary'}" click.delegate="onToggleFavorited()">
               <i class="ion-heart"></i>
               &nbsp;
               ${article.favorited ? 'Unfavorite' : 'Favorite'} Post <span class="counter">(${article.favoritesCount})</span>

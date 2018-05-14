@@ -21,10 +21,10 @@ export class ArticlePreview {
     this.article.favorited = !this.article.favorited;
     if (this.article.favorited) {
       this.article.favoritesCount++;
-      this.articleService.favorite(this.slug);
+      this.articleService.favorite(this.article.slug);
     } else {
       this.article.favoritesCount--;
-      this.articleService.unfavorite(this.slug);
+      this.articleService.unfavorite(this.article.slug);
     }
   }
 }
