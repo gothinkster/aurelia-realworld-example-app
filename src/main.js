@@ -1,4 +1,6 @@
 import environment from './environment';
+import {HttpClient} from "aurelia-fetch-client";
+import {HttpInterceptor} from "./shared/services/http-interceptor";
 
 export function configure(aurelia) {
   aurelia.use
@@ -6,6 +8,8 @@ export function configure(aurelia) {
     .feature('resources')
     .feature('shared')
     .plugin('aurelia-validation');
+
+  configureHttpClient(aurelia.container);
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
@@ -16,4 +20,14 @@ export function configure(aurelia) {
   }
 
   aurelia.start().then(() => aurelia.setRoot());
+}
+
+function configureHttpClient(container) {
+  let http = container.get(HttpClient);
+  let interceptor = container.get(HttpInterceptor);
+  http.configure(config => {
+    config
+      .withDefaults()
+      .withInterceptor(interceptor);
+  });
 }
