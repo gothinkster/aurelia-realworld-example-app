@@ -11,5 +11,14 @@ export class JwtService {
   destroyToken() {
     window.localStorage.removeItem('jwtToken');
   }
+
+  isTokenValid() {
+    return typeof this.getToken() !== 'undefined' && this.getToken() !== '';
+  }
+
+  getAuthorizationHeader() {
+    if (this.isTokenValid())
+      return `Token ${this.getToken()}`;
+  };
   
 }
