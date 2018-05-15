@@ -34,18 +34,11 @@ export class ArticleComponent {
       });
   }
 
-  onToggleFavorited() {
-    if (!this.sharedState.isAuthenticated) {
-      this.router.navigateToRoute('login');
-      return;
-    }
-    this.article.favorited = !this.article.favorited;
-    if (this.article.favorited) {
+  onToggleFavorited(value) {
+    if (value) {
       this.article.favoritesCount++;
-      this.articleService.favorite(this.slug);
     } else {
       this.article.favoritesCount--;
-      this.articleService.unfavorite(this.slug);
     }
   }
 

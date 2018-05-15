@@ -1,4 +1,5 @@
 <template>
+  <require from="../../shared/buttons/favorite-button"></require>
   <div class="article-preview">
     <div class="article-meta">
       <a route-href="route: profile; params.bind: {name: article.author.username}">
@@ -8,9 +9,9 @@
           ${article.author.username}</a>
         <span class="date">${article.createdAt | date}</span>
       </div>
-      <button class="btn ${!article.favorited ? 'btn-outline-primary' : 'btn-primary'} btn-sm pull-xs-right" click.delegate="onToggleFavorited()">
-        <i class="ion-heart"></i> ${article.favoritesCount}
-      </button>
+      <favorite-button article.bind="article" toggle.bind="onToggleFavorited" class="pull-xs-right">
+        ${article.favoritesCount}
+      </favorite-button>
     </div>
     <a route-href="route: article; params.bind: { slug: article.slug }" class="preview-link">
       <h1>${article.title}</h1>
