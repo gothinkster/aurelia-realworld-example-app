@@ -8,14 +8,14 @@ export class FavoriteButton {
   @bindable article;
   @bindable toggle;
 
-  constructor(router, state, articleService) {
+  constructor(router, sharedState, articleService) {
     this.router = router;
-    this.state = state;
+    this.sharedState = sharedState;
     this.articleService = articleService;
   }
 
   onToggleFavorited() {
-    if (!this.state.isAuthenticated) {
+    if (!this.sharedState.isAuthenticated) {
       this.router.navigateToRoute('login');
       return;
     }

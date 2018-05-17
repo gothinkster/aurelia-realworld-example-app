@@ -8,14 +8,14 @@ export class FollowButton {
   @bindable article;
   @bindable toggle;
 
-  constructor(router, state, profileService) {
+  constructor(router, sharedState, profileService) {
     this.router = router;
-    this.state = state;
+    this.sharedState = sharedState;
     this.profileService = profileService;
   }
 
   onToggleFollowing() {
-    if (!this.state.isAuthenticated) {
+    if (!this.sharedState.isAuthenticated) {
       this.router.navigateToRoute('login');
       return;
     }
