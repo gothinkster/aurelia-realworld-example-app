@@ -20,11 +20,11 @@ export class FavoriteButton {
       return;
     }
     this.article.favorited = !this.article.favorited;
-    if (this.article.favorited) {
+    if (this.article.favorited)
       this.articleService.favorite(this.article.slug);
-    } else {
+    else
       this.articleService.unfavorite(this.article.slug);
-    }
+    
     this.toggle(this.article.favorited)
   }
 }

@@ -2,29 +2,24 @@ import {inject, computedFrom} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {ArticleService} from "../../shared/services/article-service";
 import {CommentService} from "../../shared/services/comment-service";
-import {UserService} from "../../shared/services/user-service";
 import {SharedState} from "../../shared/state/shared-state";
-import {ProfileService} from "../../shared/services/profile-service";
 
-@inject(ArticleService, CommentService, UserService, SharedState, ProfileService, Router)
+@inject(ArticleService, CommentService, SharedState, Router)
 export class ArticleComponent {
   article;
   comments;
   myComment;
 
-  constructor(as, cs, us, shst, ps, r) {
-    this.articleService = as;
-    this.commentService = cs;
-    this.userService = us;
-    this.sharedState = shst;
-    this.profileService = ps;
-    this.router = r;
+  constructor(articleService, commentService, sharedState, router) {
+    this.articleService = articleService;
+    this.commentService = commentService;
+    this.sharedState = sharedState;
+    this.router = router;
   }
 
   activate(params, routeConfig) {
     this.routeConfig = routeConfig;
     this.slug = params.slug;
-
 
     return this.articleService.get(this.slug)
       .then(article => {
@@ -42,16 +37,8 @@ export class ArticleComponent {
     }
   }
 
-  onToggleFollowing() {
-    if (!this.sharedState.isAuthenticated) {
-      this.router.navigateToRoute('login');
-      return;
-    }
-    this.article.author.following = !this.article.author.following;
-    if (this.article.author.following)
-      this.profileService.follow(this.article.author.username);
-    else
-      this.profileService.unfollow(this.article.author.username);
+  onToggleFollowing(value) {
+    this.article.author.following = value;
   }
 
   postComment() {

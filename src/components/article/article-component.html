@@ -1,6 +1,7 @@
 <template>
   <require from="./comment"></require>
   <require from="../../shared/buttons/favorite-button"></require>
+  <require from="../../shared/buttons/follow-button"></require>
   <div class="article-page">
 
     <div class="banner">
@@ -26,11 +27,10 @@
             </button>
           </span>
           <span if.bind="!canModify">
-            <button class="btn btn-sm btn-outline-secondary" click.delegate="onToggleFollowing()">
-              <i class="ion-plus-round"></i>
+            <follow-button article.bind="article" toggle.bind="onToggleFollowing">
               &nbsp;
               ${article.author.following ? 'Unfollow' : 'Follow'} ${article.author.username}
-            </button>
+            </follow-button>
             &nbsp;&nbsp;
             <favorite-button article.bind="article" toggle.bind="onToggleFavorited">
               &nbsp;
@@ -73,11 +73,10 @@
             </button>
           </span>
           <span if.bind="!canModify">
-            <button class="btn btn-sm btn-outline-secondary" click.delegate="onToggleFollowing()">
-              <i class="ion-plus-round"></i>
+            <follow-button article.bind="article" toggle.bind="onToggleFollowing">
               &nbsp;
               ${article.author.following ? 'Unfollow' : 'Follow'} ${article.author.username}
-            </button>
+            </follow-button>
             &nbsp;&nbsp;
             <favorite-button article.bind="article" toggle.bind="onToggleFavorited">
               &nbsp;
