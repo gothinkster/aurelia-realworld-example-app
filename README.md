@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/loaded02/aurelia-realworld-example-app.svg?branch=master)](https://github.com/loaded02/aurelia-realworld-example-app)
+
 # ![RealWorld Example App](logo.png)
 
 > ### Aurelia codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
