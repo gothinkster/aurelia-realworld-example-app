@@ -7,6 +7,9 @@
     "url": "https://github.com/loaded02/aurelia-realworld-example-app.git"
   },
   "license": "MIT",
+  "scripts": {
+    "build": "au build --env prod"
+  },
   "dependencies": {
     "aurelia-animator-css": "^1.0.2",
     "aurelia-bootstrapper": "^2.1.1",
