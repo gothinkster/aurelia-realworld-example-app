@@ -5,7 +5,7 @@
 > ### Aurelia codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
 
 
-### [Demo](https://gothinkster.github.io/aurelia-realworld-example-app)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
+### [Demo](https://loaded02.github.io/aurelia-realworld-example-app)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
 
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **Aurelia** including CRUD operations, authentication, routing, pagination, and more.
@@ -14,6 +14,10 @@ We've gone to great lengths to adhere to the **[Aurelia](http://aurelia.io)** co
 
 For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
+# Community Activity
+
+- [Typescript Fork of this Project](https://github.com/4imble/aurelia-blog/tree/typescript-conversion) Thanks to @4imble!
+- [Framework Speed Comparison](https://medium.freecodecamp.org/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-2018-update-e5760fb4a962)
 
 # How it works
 
