@@ -1,40 +1,54 @@
-import gulp from 'gulp';
-import {CLIOptions, build as buildCLI} from 'aurelia-cli';
-import transpile from './transpile';
-import processMarkup from './process-markup';
-import processCSS from './process-css';
-import copyFiles from './copy-files';
-import watch from './watch';
+import webpackConfig from '../../webpack.config';
+import webpack from 'webpack';
 import project from '../aurelia.json';
+import {CLIOptions, Configuration} from 'aurelia-cli';
+import gulp from 'gulp';
+import configureEnvironment from './environment';
+import del from 'del';
 
-let build = gulp.series(
-  readProjectConfiguration,
-  gulp.parallel(
-    transpile,
-    processMarkup,
-    processCSS,
-    copyFiles
-  ),
-  writeBundles
+const analyze = CLIOptions.hasFlag('analyze');
+const buildOptions = new Configuration(project.build.options);
+const production = CLIOptions.getEnvironment() === 'prod';
+const server = buildOptions.isApplicable('server');
+const extractCss = buildOptions.isApplicable('extractCss');
+const coverage = buildOptions.isApplicable('coverage');
+
+const config = webpackConfig({
+  production, server, extractCss, coverage, analyze
+});
+const compiler = webpack(config);
+
+function buildWebpack(done) {
+  if (CLIOptions.hasFlag('watch')) {
+    compiler.watch({}, onBuild);
+  } else {
+    compiler.run(onBuild);
+    compiler.plugin('done', () => done());
+  }
+}
+
+function onBuild(err, stats) {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) console.error(err.details);
+    process.exit(1);
+  } else {
+    process.stdout.write(stats.toString({ colors: require('supports-color') }) + '\n');
+  }
+}
+
+function clearDist() {
+  return del([config.output.path]);
+}
+
+const build = gulp.series(
+  clearDist,
+  configureEnvironment,
+  buildWebpack
 );
 
-let main;
-
-if (CLIOptions.taskName() === 'build' && CLIOptions.hasFlag('watch')) {
-  main = gulp.series(
-    build,
-    (done) => { watch(); done(); }
-  );
-} else {
-  main = build;
-}
-
-function readProjectConfiguration() {
-  return buildCLI.src(project);
-}
-
-function writeBundles() {
-  return buildCLI.dest();
-}
-
-export { main as default };
+export {
+  config,
+  buildWebpack,
+  build as default
+};
