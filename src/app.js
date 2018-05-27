@@ -1,3 +1,4 @@
+import {PLATFORM} from 'aurelia-pal';
 import {inject} from 'aurelia-dependency-injection';
 import {UserService} from './shared/services/user-service';
 import {SharedState} from './shared/state/shared-state';
@@ -15,13 +16,13 @@ export class App {
     config.title = 'Conduit';
     config.addAuthorizeStep(AuthorizeStep);
     config.map([
-      {route: ['', 'home'], moduleId: 'components/home/home-component', name: 'home', title: 'Home'},
-      {route: ['login'], moduleId: 'components/auth/auth-component', name: 'login', title: 'Sign in'},
-      {route: ['register'], moduleId: 'components/auth/auth-component', name:'register', title: 'Sign up'},
-      {route: ['settings'], moduleId: 'components/settings/settings-component', name:'settings', title: 'Settings', settings: {auth: true}},
-      {route: [':name'], moduleId: 'components/profile/profile-component', name:'profile', title: 'Profile'},
-      {route: ['editor/:slug?'], moduleId: 'components/editor/editor-component', name:'editor', title: 'Editor', settings: {auth: true}},
-      {route: ['article/:slug'], moduleId: 'components/article/article-component', name:'article', title: 'article'}
+      {route: ['', 'home'], moduleId: PLATFORM.moduleName('./components/home/home-component'), name: 'home', title: 'Home'},
+      {route: ['login'], moduleId: PLATFORM.moduleName('./components/auth/auth-component'), name: 'login', title: 'Sign in'},
+      {route: ['register'], moduleId: PLATFORM.moduleName('./components/auth/auth-component'), name:'register', title: 'Sign up'},
+      {route: ['settings'], moduleId: PLATFORM.moduleName('./components/settings/settings-component'), name:'settings', title: 'Settings', settings: {auth: true}},
+      {route: [':name'], moduleId: PLATFORM.moduleName('./components/profile/profile-component'), name:'profile', title: 'Profile'},
+      {route: ['editor/:slug?'], moduleId: PLATFORM.moduleName('./components/editor/editor-component'), name:'editor', title: 'Editor', settings: {auth: true}},
+      {route: ['article/:slug'], moduleId: PLATFORM.moduleName('./components/article/article-component'), name:'article', title: 'article'}
     ]);
 
     this.router = router;
