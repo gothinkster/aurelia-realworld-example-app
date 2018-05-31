@@ -1,4 +1,4 @@
-import moment from 'moment';
+import format from 'date-fns/format'
 
 export class DateValueConverter {
   /*
@@ -7,7 +7,10 @@ export class DateValueConverter {
   * "July 27, 2017"
   */
   toView(value) {
-    return moment(value).format('MMMM D, YYYY')
+    return format(
+      value,
+      'MMMM D, YYYY'
+    )
   }
 }
 

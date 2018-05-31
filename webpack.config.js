@@ -29,8 +29,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
     modules: [srcDir, 'node_modules'],
   },
   entry: {
-    app: ['aurelia-bootstrapper'],
-    vendor: ['bluebird'],
+    app: ['aurelia-bootstrapper']
   },
   mode: production ? 'production' : 'development',
   output: {
@@ -72,7 +71,7 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
       },
       { test: /\.json$/i, loader: 'json-loader' },
       // use Bluebird as the global Promise implementation:
-      { test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' },
+      //{ test: /[\/\\]node_modules[\/\\]bluebird[\/\\].+\.js$/, loader: 'expose-loader?Promise' },
       // embed small images and fonts as Data Urls and larger ones as files:
       { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
@@ -83,9 +82,6 @@ module.exports = ({production, server, extractCss, coverage, analyze} = {}) => (
   },
   plugins: [
     new AureliaPlugin(),
-    new ProvidePlugin({
-      'Promise': 'bluebird'
-    }),
     new ModuleDependenciesPlugin({
       'aurelia-testing': [ './compile-spy', './view-spy' ]
     }),

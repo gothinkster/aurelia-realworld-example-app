@@ -1,19 +1,18 @@
 import environment from './environment';
 import {PLATFORM} from 'aurelia-pal';
 import 'babel-polyfill';
-import * as Bluebird from 'bluebird';
+//import * as Bluebird from 'bluebird';
 import {HttpClient} from "aurelia-fetch-client";
 import {HttpInterceptor} from "./shared/services/http-interceptor";
 
 // remove out if you don't want a Promise polyfill (remove also from webpack.config.js)
-Bluebird.config({ warnings: { wForgottenReturn: false } });
+//Bluebird.config({ warnings: { wForgottenReturn: false } });
 
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature(PLATFORM.moduleName('resources/index'))
-    .feature(PLATFORM.moduleName('shared/index'))
-    .plugin(PLATFORM.moduleName('aurelia-validation'));
+    .feature(PLATFORM.moduleName('shared/index'));
 
   // Uncomment the line below to enable animation.
   // aurelia.use.plugin(PLATFORM.moduleName('aurelia-animator-css'));
