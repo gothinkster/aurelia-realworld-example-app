@@ -1,10 +1,9 @@
 import {inject} from 'aurelia-dependency-injection';
 import {Router, activationStrategy} from 'aurelia-router';
-import {ValidationControllerFactory, ValidationRules} from 'aurelia-validation';
 import {UserService} from '../../shared/services/user-service';
 import {SharedState} from '../../shared/state/shared-state';
 
-@inject(UserService, SharedState, Router, ValidationControllerFactory)
+@inject(UserService, SharedState, Router)
 export class AuthComponent {
   type = '';
   username = '';
@@ -12,17 +11,10 @@ export class AuthComponent {
   password = '';
   errors = null;
 
-  constructor(userService, sharedState, router, controllerFactory) {
+  constructor(userService, sharedState, router) {
     this.userService = userService;
     this.sharedState = sharedState;
     this.router = router;
-    this.controller = controllerFactory.createForCurrentScope();
-
-    ValidationRules
-      .ensure('email').required().email()
-      .ensure('password').required().minLength(8)
-      .ensure('username').required().when((auth) => auth.type === 'register')
-      .on(this);
   }
 
   determineActivationStrategy() {
@@ -44,20 +36,15 @@ export class AuthComponent {
   submit() {
     this.errors = null;
 
-    this.controller.validate()
-      .then(result => {
-        if (result.valid) {
-          const credentials = {
-            username: this.username,
-            email: this.email,
-            password: this.password
-          };
-          this.userService.attemptAuth(this.type, credentials)
-            .then(data => this.router.navigateToRoute('home'))
-            .catch(promise => {
-              promise.then(err => this.errors = err.errors)
-            });
-        }
-      })
+    const credentials = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
+    this.userService.attemptAuth(this.type, credentials)
+      .then(data => this.router.navigateToRoute('home'))
+      .catch(promise => {
+        promise.then(err => this.errors = err.errors)
+      });
   }
 }

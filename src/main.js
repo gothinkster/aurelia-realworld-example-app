@@ -6,8 +6,7 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .feature('resources')
-    .feature('shared')
-    .plugin('aurelia-validation');
+    .feature('shared');
 
   configureHttpClient(aurelia.container);
 
