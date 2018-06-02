@@ -35,7 +35,7 @@ and Navigate to `http://localhost:8080/`.
 The app will automatically reload if you change any of the source files.
 
 ### Building the project
-Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory. Use the `--env prod` flag for a production build.
+Run `au build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--env prod` flag for a production build.
 
 ### Testing the project
 Run `au karma` to test the project.
