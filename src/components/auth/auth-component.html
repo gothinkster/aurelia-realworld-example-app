@@ -22,10 +22,10 @@
 
           <form>
             <fieldset class="form-group" if.bind="type === 'register'">
-              <input class="form-control form-control-lg" type="text" placeholder="Your Name" value.bind="username">
+              <input class="form-control form-control-lg" type="text" placeholder="Your Name" value.bind="username" required>
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control form-control-lg" type="text" placeholder="Email" value.bind="email">
+              <input class="form-control form-control-lg" type="text" placeholder="Email" value.bind="email" required>
             </fieldset>
             <fieldset class="form-group">
               <input class="form-control form-control-lg" type="password" placeholder="Password" value.bind="password">

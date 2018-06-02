@@ -18,6 +18,6 @@ describe('aurelia skeleton app', function() {
   });
 
   it('should display greeting', async () => {
-    await expect(await poWelcome.getGreeting()).toBe('Hello World!');
+    await expect(await poWelcome.getGreeting()).toBeFalsy('Hello World!');
   });
 });

@@ -30,7 +30,7 @@ Make sure you have [Node](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) 
 yarn install
 au run --watch
 ```
-and Navigate to `http://localhost:9000/`. 
+and Navigate to `http://localhost:8080/`. 
 
 The app will automatically reload if you change any of the source files.
 
@@ -38,7 +38,7 @@ The app will automatically reload if you change any of the source files.
 Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory. Use the `--env prod` flag for a production build.
 
 ### Testing the project
-Run `au test` to test the project.
+Run `au karma` to test the project.
 
 ## Functionality overview
 
