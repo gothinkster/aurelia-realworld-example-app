@@ -78,10 +78,6 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 In order to optimize the app for IE11 or Edge please add [bluebird.js](http://bluebirdjs.com) 
 as a polyfill for Promises and Fetch.
 
-## IE 11 Support
-In order to optimize the app for IE11 or Edge please add [bluebird.js](http://bluebirdjs.com) 
-as a polyfill for Promises and Fetch.
-
 <br />
 
 [![Brought to you by Thinkster](https://raw.githubusercontent.com/gothinkster/realworld/master/media/end.png)](https://thinkster.io)
