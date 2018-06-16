@@ -25,7 +25,7 @@ export class HomeComponent {
   bind() {
     this.subscription = this.bindingEngine.propertyObserver(this.sharedState, 'isAuthenticated')
       .subscribe((newValue, oldValue) => {
-        console.log('homeComponent isAuthenticated: ', newValue)
+        //console.log('homeComponent isAuthenticated: ', newValue)
       })
   }
 
