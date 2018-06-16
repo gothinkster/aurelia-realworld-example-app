@@ -30,15 +30,15 @@ Make sure you have [Node](https://nodejs.org/) and [Yarn](https://yarnpkg.com/) 
 yarn install
 au run --watch
 ```
-and Navigate to `http://localhost:9000/`. 
+and Navigate to `http://localhost:8080/`. 
 
 The app will automatically reload if you change any of the source files.
 
 ### Building the project
-Run `au build` to build the project. The build artifacts will be stored in the `scripts/` directory. Use the `--env prod` flag for a production build.
+Run `au build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--env prod` flag for a production build.
 
 ### Testing the project
-Run `au test` to test the project.
+Run `au karma` to test the project.
 
 ## Functionality overview
 
@@ -74,6 +74,9 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
     - Show basic user info
     - List of articles populated from author's created articles or author's favorited articles
 
+## IE 11 Support
+In order to optimize the app for IE11 or Edge please add [bluebird.js](http://bluebirdjs.com) 
+as a polyfill for Promises and Fetch.
 
 ## IE 11 Support
 In order to optimize the app for IE11 or Edge please add [bluebird.js](http://bluebirdjs.com) 
