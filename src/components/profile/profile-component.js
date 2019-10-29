@@ -1,3 +1,4 @@
+import {PLATFORM} from 'aurelia-pal';
 import {inject} from 'aurelia-dependency-injection';
 import {computedFrom} from 'aurelia-framework';
 import {SharedState} from '../../shared/state/shared-state';
@@ -14,8 +15,8 @@ export class ProfileComponent {
 
   configureRouter(config, router) {
     config.map([
-      {route: [''], moduleId: 'components/profile/profile-article-component', name: 'profilearticle', title: 'Profile'},
-      {route: ['favorites'], moduleId: 'components/profile/profile-favorites-component', name: 'profilefavorites', title: 'Profile'}
+      {route: [''], moduleId: PLATFORM.moduleName('components/profile/profile-article-component'), name: 'profilearticle', title: 'Profile'},
+      {route: ['favorites'], moduleId: PLATFORM.moduleName('components/profile/profile-favorites-component'), name: 'profilefavorites', title: 'Profile'}
     ]);
 
     this.router = router;
