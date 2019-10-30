@@ -72,7 +72,7 @@
     "aurelia-webpack-plugin": "^3.0.0-rc.1",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1",
+    "webpack-dev-server": "^3.1.11",
     "expose-loader": "^0.7.5",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
