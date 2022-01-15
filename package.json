@@ -22,7 +22,7 @@
     "aurelia-fetch-client": "^1.1.2",
     "aurelia-polyfills": "^1.3.0",
     "date-fns": "^1.29.0",
-    "marked": "^0.3.19",
+    "marked": "^4.0.10",
     "querystringify": "^1.0.0"
   },
   "peerDependencies": {},
