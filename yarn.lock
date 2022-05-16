@@ -653,9 +653,18 @@ aurelia-animator-css@^1.0.4:
     aurelia-pal "^1.0.0"
     aurelia-templating "^1.0.0"
 
-aurelia-binding@^1.0.0, aurelia-binding@^1.3.0, aurelia-binding@^1.7.1:
+aurelia-binding@^1.3.0, aurelia-binding@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/aurelia-binding/-/aurelia-binding-1.7.1.tgz#9d76784d35d84b8117f23c0eba00de6282ded107"
+  dependencies:
+    aurelia-logging "^1.0.0"
+    aurelia-metadata "^1.0.0"
+    aurelia-pal "^1.0.0"
+    aurelia-task-queue "^1.0.0"
+
+aurelia-binding@^2.0.0:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/aurelia-binding/-/aurelia-binding-2.5.4.tgz#c1c9221dd351bbf749df5e71aedc29b993a9ada0"
   dependencies:
     aurelia-logging "^1.0.0"
     aurelia-metadata "^1.0.0"
@@ -697,8 +706,8 @@ aurelia-cli@^0.33.0:
     semver "^5.3.0"
 
 aurelia-dependency-injection@^1.0.0, aurelia-dependency-injection@^1.2.0:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/aurelia-dependency-injection/-/aurelia-dependency-injection-1.3.2.tgz#5f9ca5dede6a1ccc72a0838c980df3dfe7918756"
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/aurelia-dependency-injection/-/aurelia-dependency-injection-1.5.2.tgz#a4a6aee8c3e480f11d84dba39fc6e615bf5f0469"
   dependencies:
     aurelia-metadata "^1.0.0"
     aurelia-pal "^1.0.0"
@@ -714,18 +723,18 @@ aurelia-fetch-client@^1.1.2:
   resolved "https://registry.yarnpkg.com/aurelia-fetch-client/-/aurelia-fetch-client-1.3.1.tgz#95af3c0ef0c434e92160d4882c088c7943bf2411"
 
 aurelia-framework@^1.0.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/aurelia-framework/-/aurelia-framework-1.2.0.tgz#21da578ce7332022a13741cadb2a84cd258641c7"
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/aurelia-framework/-/aurelia-framework-1.4.1.tgz#76a76dfa555e3315daab4256c776434fb7932f43"
   dependencies:
-    aurelia-binding "^1.0.0"
+    aurelia-binding "^2.0.0"
     aurelia-dependency-injection "^1.0.0"
     aurelia-loader "^1.0.0"
     aurelia-logging "^1.0.0"
     aurelia-metadata "^1.0.0"
     aurelia-pal "^1.0.0"
-    aurelia-path "^1.0.0"
+    aurelia-path "^1.1.7"
     aurelia-task-queue "^1.0.0"
-    aurelia-templating "^1.0.0"
+    aurelia-templating "^1.11.1"
 
 aurelia-history-browser@^1.1.0:
   version "1.1.1"
@@ -766,8 +775,8 @@ aurelia-loader-webpack@^2.1.0:
     aurelia-pal "^1.1.1"
 
 aurelia-loader@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/aurelia-loader/-/aurelia-loader-1.0.0.tgz#b78c2a2813aa8e441247237dd66fd62e5d4e19ea"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/aurelia-loader/-/aurelia-loader-1.0.2.tgz#221ac3fa4fd65faf120410390a3e7de92609614e"
   dependencies:
     aurelia-metadata "^1.0.0"
     aurelia-path "^1.0.0"
@@ -779,12 +788,12 @@ aurelia-logging-console@^1.0.0:
     aurelia-logging "^1.0.0"
 
 aurelia-logging@^1.0.0, aurelia-logging@^1.2.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/aurelia-logging/-/aurelia-logging-1.4.0.tgz#04fb7aa74015593f7a15b225beeba07b7d14dcd5"
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/aurelia-logging/-/aurelia-logging-1.5.2.tgz#eddacfeded5da39808d36fd916829dd8d4c88ddd"
 
 aurelia-metadata@^1.0.0, aurelia-metadata@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/aurelia-metadata/-/aurelia-metadata-1.0.3.tgz#1e8d59da188e2871a8ad749ba42ca85084a3f30e"
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/aurelia-metadata/-/aurelia-metadata-1.0.7.tgz#7774701e1f02b5f731048d1a2bd5edb6059552d0"
   dependencies:
     aurelia-pal "^1.0.0"
 
@@ -795,12 +804,12 @@ aurelia-pal-browser@^1.0.0:
     aurelia-pal "^1.4.0"
 
 aurelia-pal@^1.0.0, aurelia-pal@^1.1.1, aurelia-pal@^1.3.0, aurelia-pal@^1.4.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/aurelia-pal/-/aurelia-pal-1.8.0.tgz#b6496fae8b335b8cecb1f8b98434ea4125fd2333"
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/aurelia-pal/-/aurelia-pal-1.8.2.tgz#9c39509ea2650291fa4bda06a4ed37d8be31f0ac"
 
-aurelia-path@^1.0.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/aurelia-path/-/aurelia-path-1.1.1.tgz#caa9d20bc8515a5f9f286d9a3b18d81b2c85b0dd"
+aurelia-path@^1.0.0, aurelia-path@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/aurelia-path/-/aurelia-path-1.1.7.tgz#8eba50a45ca52dfbb3c65f0bf3a221c987602b58"
 
 aurelia-polyfills@^1.0.0, aurelia-polyfills@^1.3.0:
   version "1.3.0"
@@ -832,8 +841,8 @@ aurelia-router@^1.5.0:
     aurelia-route-recognizer "^1.0.0"
 
 aurelia-task-queue@^1.0.0, aurelia-task-queue@^1.1.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/aurelia-task-queue/-/aurelia-task-queue-1.3.0.tgz#95d64253aea7dcf1e9b8e6de9d5c7ca57e4fd95f"
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/aurelia-task-queue/-/aurelia-task-queue-1.3.3.tgz#f7f744bde4ffa3dddb5225bd0956a2fa53c139c5"
   dependencies:
     aurelia-pal "^1.0.0"
 
@@ -872,17 +881,17 @@ aurelia-templating-router@^1.0.0:
     aurelia-router "^1.5.0"
     aurelia-templating "^1.5.0"
 
-aurelia-templating@^1.0.0, aurelia-templating@^1.1.2, aurelia-templating@^1.3.0, aurelia-templating@^1.5.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/aurelia-templating/-/aurelia-templating-1.7.0.tgz#013c08fd1b09a57f5051522e1bb3f657f0803b68"
+aurelia-templating@^1.0.0, aurelia-templating@^1.1.2, aurelia-templating@^1.11.1, aurelia-templating@^1.3.0, aurelia-templating@^1.5.0:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/aurelia-templating/-/aurelia-templating-1.11.1.tgz#661df6d9ff09ec280ccf0fc4a94b702fceff0b24"
   dependencies:
-    aurelia-binding "^1.0.0"
+    aurelia-binding "^2.0.0"
     aurelia-dependency-injection "^1.0.0"
     aurelia-loader "^1.0.0"
     aurelia-logging "^1.0.0"
     aurelia-metadata "^1.0.0"
     aurelia-pal "^1.0.0"
-    aurelia-path "^1.0.0"
+    aurelia-path "^1.1.7"
     aurelia-task-queue "^1.1.0"
 
 aurelia-testing@^1.0.0-beta.4.0.0:
